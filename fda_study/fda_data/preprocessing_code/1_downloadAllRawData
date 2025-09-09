@@ -1,0 +1,11 @@
+#!/bin/bash
+for yr in {2015..2015}
+do
+for qtr in {1..4}
+do
+curl -ko ./${yr}q${qtr}.zip "https://fis.fda.gov/content/Exports/faers_xml_${yr}q${qtr}.zip"
+mkdir ${yr}q${qtr}
+unzip ${yr}q${qtr}.zip xml/* -d ${yr}q${qtr}/
+rm ${yr}q${qtr}/xml/*.pdf
+done
+done
